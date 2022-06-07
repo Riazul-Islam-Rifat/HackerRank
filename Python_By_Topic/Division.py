@@ -1,0 +1,6 @@
+a = int(input())
+b = int(input())
+D= int(a/b)
+print(D)
+D2 = float(a/b)
+print(D2)
