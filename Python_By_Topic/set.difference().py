@@ -1,0 +1,8 @@
+set1_len=int(input())
+s1=input()
+set2_len=int(input())
+s2=input()
+set1=set(map(int,s1.split()))
+set2=set(map(int,s2.split()))
+set3=set1.difference(set2)
+print(len(set3))
