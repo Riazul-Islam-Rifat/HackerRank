@@ -1,0 +1,15 @@
+
+SELECT ROUND(AVG(LAT_N),4)
+FROM (SELECT LAT_N, ROW_NUMBER() OVER(ORDER BY LAT_N ASC) ROW_NUM
+      FROM STATION) DEMO_TABLE WHERE ROW_NUM=(SELECT
+            CASE
+                WHEN COUNT(*)%2=0 THEN (COUNT(*))/2
+                ELSE(COUNT(*)+1)/2
+            END O
+            FROM STATION)
+        OR
+       ROW_NUM=(SELECT
+            CASE
+                WHEN COUNT(*)%2=0 THEN ((COUNT(*))/2)+1
+            END E
+            FROM STATION);
